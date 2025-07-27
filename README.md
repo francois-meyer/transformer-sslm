@@ -4,7 +4,7 @@ Code for pretraining and finetuning the Transformer-based SSLM (subword segmenta
 
 ![](sslm-arch.png)
 
-The model is implemented as an architecture in fairseq. This repo contains code for pretraining, completion-only finetuning, and text generation. We will publicly release our pretrained SSLMs for isiXhosa and Setswana upon publication.
+The model is implemented as an architecture in fairseq. This repo contains code for pretraining, completion-only finetuning, and text generation. We will publicly release our pretrained SSLMs for Setswana, English, and isiXhosa upon publication.
 
 
 ## Dependencies
