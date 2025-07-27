@@ -1,6 +1,6 @@
 # Transformer SSLM
 
-Code for pretraining and finetuning the Transformer-based SSLM (subword segmental language model) proposed in the paper *Finetuning Subword Segmentation for Low-Resource Text Generation*. During pretraining, the model learns a subword segmentation scheme that optimises its autoregressive language modelling objective. During finetuning, the model adapts its subword segmentation to optimise text generation in a downstream task.
+Code for pretraining and finetuning the Transformer-based SSLM (subword segmental language model) proposed in the paper *The Learning Dynamics of Subword Segmentation for Morphologically Diverse Languages*. During pretraining, the model learns a subword segmentation scheme that optimises its autoregressive language modelling objective. During finetuning, the model adapts its subword segmentation to optimise text generation in a downstream task.
 
 ![](sslm-arch.png)
 
@@ -76,7 +76,7 @@ python fairseq/fairseq_cli/preprocess.py  \
     --destdir $PT_DATA_DIR/bin
 ```
 
-2. Pretrain SSLM.
+2. Pretrain T-SSLM.
 
 ```shell
 python fairseq/fairseq_cli/train.py $PT_DATA_DIR \
@@ -106,7 +106,7 @@ python fairseq/fairseq_cli/preprocess.py  \
     --destdir $FT_DATA_DIR/bin
 ```
 
-4. Finetune SSLM for completion-only text generation.
+4. Finetune T-SSLM for completion-only text generation.
 
 
 
@@ -130,7 +130,7 @@ python fairseq/fairseq_cli/train.py $FT_DATA_DIR \
 
 ```
 
-5. Generate text with a finetuned SSLM. Set `--decoding dynamic` to use the recommended dynamic decoding (character-by-character generation) or set `--decoding separate` to use unmixed decoding (subword-level generation).
+5. Generate text with a finetuned T-SSLM. Set `--decoding dynamic` to use the recommended dynamic decoding (character-by-character generation) or set `--decoding separate` to use unmixed decoding (subword-level generation).
 
 ```shell
 python fairseq/fairseq_cli/generate_sslm.py $DATA_DIR \
