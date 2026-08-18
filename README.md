@@ -1,6 +1,6 @@
 # Transformer SSLM
 
-Code for pretraining and finetuning the Transformer-based SSLM (subword segmental language model) proposed in the paper *The Learning Dynamics of Subword Segmentation for Morphologically Diverse Languages*. During pretraining, the model learns a subword segmentation scheme that optimises its autoregressive language modelling objective. During finetuning, the model adapts its subword segmentation to optimise text generation in a downstream task.
+Code for pretraining and finetuning the Transformer-based SSLM (subword segmental language model) proposed in the paper [*The Learning Dynamics of Subword Segmentation for Morphologically Diverse Languages*](https://aclanthology.org/2025.ijcnlp-long.36/). During pretraining, the model learns a subword segmentation scheme that optimises its autoregressive language modelling objective. During finetuning, the model adapts its subword segmentation to optimise text generation in a downstream task.
 
 ![](sslm-arch.png)
 
@@ -146,4 +146,35 @@ python fairseq/fairseq_cli/generate_sslm.py $DATA_DIR \
     --line-prompts --batch-size 1 --beam 5 \
     --normalize-type seg-seg  \
     --results-path $RESULTS_DIR &>> $RESULTS_DIR/log
+```
+
+### Citation
+
+If you use this dataset, please cite:
+
+```bibtex
+@inproceedings{meyer-buys-2025-learning,
+    title = "The Learning Dynamics of Subword Segmentation for Morphologically Diverse Languages",
+    author = "Meyer, Francois  and
+      Buys, Jan",
+    editor = "Inui, Kentaro  and
+      Sakti, Sakriani  and
+      Wang, Haofen  and
+      Wong, Derek F.  and
+      Bhattacharyya, Pushpak  and
+      Banerjee, Biplab  and
+      Ekbal, Asif  and
+      Chakraborty, Tanmoy  and
+      Singh, Dhirendra Pratap",
+    booktitle = "Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics",
+    month = dec,
+    year = "2025",
+    address = "Mumbai, India",
+    publisher = "The Asian Federation of Natural Language Processing and The Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.ijcnlp-long.36/",
+    doi = "10.18653/v1/2025.ijcnlp-long.36",
+    pages = "647--661",
+    ISBN = "979-8-89176-298-5",
+    abstract = "Subword segmentation is typically applied in preprocessing and stays fixed during training. Alternatively, it can be learned during training to optimise the training objective. In this paper we study the learning dynamics of subword segmentation: if a language model can dynamically optimise tokenisation, how do its subwords evolve during pretraining and finetuning? To explore this, we extend the subword segmental language model (SSLM), a framework for learning subwords during training, to support pretraining and finetuning. We train models for three typologically diverse languages to study learning dynamics across the morphological spectrum: Isi-Xhosa is conjunctive (long word forms composed of many morphemes), Setswana is disjunctive (morphemes written as separate words), and English represents a typological middle ground. We analyse subword dynamics from a linguistic perspective, tracking morphology, productivity, and fertility. We identify four stages of subword learning, with the morphologically complex isi-Xhosa exhibiting greater instability. During finetuning, subword boundaries shift to become finer-grained. Lastly, we show that learnable subwords offers a promising approach to improve text generation and cross-lingual transfer for low-resource, morphologically complex languages."
+}
 ```
