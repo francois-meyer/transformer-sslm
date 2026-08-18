@@ -150,8 +150,6 @@ python fairseq/fairseq_cli/generate_sslm.py $DATA_DIR \
 
 ### Citation
 
-If you use this dataset, please cite:
-
 ```bibtex
 @inproceedings{meyer-buys-2025-learning,
     title = "The Learning Dynamics of Subword Segmentation for Morphologically Diverse Languages",
